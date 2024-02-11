@@ -100,3 +100,9 @@ D:\Dotnet-Next.js\demo\Carsties\src\AuctionService\bin\Debug\net8.0\zh-Hans\Micr
 D:\Dotnet-Next.js\demo\Carsties\src\AuctionService\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Dotnet-Next.js\demo\Carsties\src\AuctionService\obj\Debug\net8.0\AuctionService.csproj.AssemblyReference.cache
 D:\Dotnet-Next.js\demo\Carsties\src\AuctionService\obj\Debug\net8.0\AuctionService.csproj.CopyComplete
+D:\Dotnet-Next.js\demo\Carsties\src\AuctionService\bin\Debug\net8.0\MassTransit.dll
+D:\Dotnet-Next.js\demo\Carsties\src\AuctionService\bin\Debug\net8.0\MassTransit.Abstractions.dll
+D:\Dotnet-Next.js\demo\Carsties\src\AuctionService\bin\Debug\net8.0\MassTransit.RabbitMqTransport.dll
+D:\Dotnet-Next.js\demo\Carsties\src\AuctionService\bin\Debug\net8.0\RabbitMQ.Client.dll
+D:\Dotnet-Next.js\demo\Carsties\src\AuctionService\bin\Debug\net8.0\Contracts.dll
+D:\Dotnet-Next.js\demo\Carsties\src\AuctionService\bin\Debug\net8.0\Contracts.pdb
