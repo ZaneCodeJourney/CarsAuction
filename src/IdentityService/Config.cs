@@ -20,13 +20,11 @@ public static class Config
     public static IEnumerable<Client> Clients =>
         new Client[]
         {
-
-            // interactive client using code flow + pkce
             new Client
             {
                 ClientId = "postman",
                 ClientName = "Postman",
-                AllowedScopes = { "openid", "profile", "auctionApp"},
+                AllowedScopes = {"openid", "profile", "auctionApp"},
                 RedirectUris = {"https://www.getpostman.com/oauth2/callback"},
                 ClientSecrets = new[] {new Secret("NotASecret".Sha256())},
                 AllowedGrantTypes = {GrantType.ResourceOwnerPassword}

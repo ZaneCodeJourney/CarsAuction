@@ -1,4 +1,4 @@
-using AuctionService.Entities;
+﻿using AuctionService.Entities;
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
 

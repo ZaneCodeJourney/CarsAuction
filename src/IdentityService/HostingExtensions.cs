@@ -30,7 +30,7 @@ internal static class HostingExtensions
 
                 if (builder.Environment.IsEnvironment("Docker"))
                 {
-                    options.IssuerUri = "Identity-svc";
+                    options.IssuerUri = "identity-svc";
                 }
 
                 // see https://docs.duendesoftware.com/identityserver/v6/fundamentals/resources/
@@ -42,11 +42,11 @@ internal static class HostingExtensions
             .AddAspNetIdentity<ApplicationUser>()
             .AddProfileService<CustomProfileService>();
 
-        builder.Services.ConfigureApplicationCookie(options =>
+        builder.Services.ConfigureApplicationCookie(options => 
         {
             options.Cookie.SameSite = SameSiteMode.Lax;
         });
-
+        
         builder.Services.AddAuthentication();
 
         return builder.Build();

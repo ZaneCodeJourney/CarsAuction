@@ -4,14 +4,14 @@
 <div>
     <partial name="_ValidationSummary" />
 
-    <div>
+    <div class="row">
         <div class="col-6 offset-3">
             <div class="card">
                 <div class="card-header">
                     <h2>Register</h2>
                 </div>
                 <div class="card-body">
-                   <form asp-page="/Account/Register/Index">
+                    <form asp-page="/Account/Register/Index">
                             <input type="hidden" asp-for="Input.ReturnUrl" />
 
                             <div class="form-group">
@@ -33,14 +33,15 @@
                                 <label asp-for="Input.Password"></label>
                                 <input type="password" class="form-control" placeholder="Password" asp-for="Input.Password" autocomplete="off">
                             </div>
-                            
+
                             <a class="pb-2 d-block" asp-page="../Login/Index" asp-route-returnUrl="@Model.Input.ReturnUrl">
-                                Already registered? Login here!
+                                Already registered? Login here
                             </a>
+                            
                             <button class="btn btn-primary" name="Input.Button" value="register">Register</button>
                             <button class="btn btn-secondary" name="Input.Button" value="cancel">Cancel</button>
                         </form>
-                </div> 
+                </div>
 
                 @if(Model.RegisterSuccess)
                 {

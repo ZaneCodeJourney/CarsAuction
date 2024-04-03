@@ -8,11 +8,9 @@ namespace SearchService;
 public class SearchController : ControllerBase
 {
     [HttpGet]
-    public async Task<ActionResult<List<Item>>> SearchItems([FromQuery]SearchParams searchParams)
+    public async Task<ActionResult<List<Item>>> SearchItems([FromQuery] SearchParams searchParams)
     {
         var query = DB.PagedSearch<Item, Item>();
-
-        query.Sort(x => x.Ascending(a => a.Make));
 
         if (!string.IsNullOrEmpty(searchParams.SearchTerm))
         {
@@ -22,14 +20,15 @@ public class SearchController : ControllerBase
         query = searchParams.OrderBy switch
         {
             "make" => query.Sort(x => x.Ascending(a => a.Make)),
-            "new" => query.Sort(x => x.Descending(a => a.CreateAt)),
+            "new" => query.Sort(x => x.Descending(a => a.CreatedAt)),
             _ => query.Sort(x => x.Ascending(a => a.AuctionEnd))
         };
 
         query = searchParams.FilterBy switch
         {
             "finished" => query.Match(x => x.AuctionEnd < DateTime.UtcNow),
-            "endingSoon" => query.Match(x => x.AuctionEnd < DateTime.UtcNow.AddHours(6) && x.AuctionEnd > DateTime.UtcNow),
+            "endingSoon" => query.Match(x => x.AuctionEnd < DateTime.UtcNow.AddHours(6)
+                && x.AuctionEnd > DateTime.UtcNow),
             _ => query.Match(x => x.AuctionEnd > DateTime.UtcNow)
         };
 

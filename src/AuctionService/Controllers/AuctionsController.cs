@@ -57,7 +57,7 @@ public class AuctionsController : ControllerBase
     public async Task<ActionResult<AuctionDto>> CreateAuction(CreateAuctionDto auctionDto)
     {
         var auction = _mapper.Map<Auction>(auctionDto);
-        // TODO: add current user as seller
+
         auction.Seller = User.Identity.Name;
 
         _context.Auctions.Add(auction);
@@ -99,6 +99,7 @@ public class AuctionsController : ControllerBase
 
         return BadRequest("Problem saving changes");
     }
+
     [Authorize]
     [HttpDelete("{id}")]
     public async Task<ActionResult> DeleteAuction(Guid id)

@@ -8,21 +8,21 @@ services:
     volumes:
       - /var/lib/postresql/data
   mongodb:
-      image: mongo
-      environment:
-        - MONGO_INITDB_ROOT_USERNAME=root
-        - MONGO_INITDB_ROOT_PASSWORD=mongopw
-      ports:
-        - 27017:27017
-      volumes:
-        - /var/lib/mongodb/data
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=mongopw
+    ports:
+      - 27017:27017
+    volumes:
+      - /var/lib/mongodb/data
   rabbitmq:
     image: rabbitmq:3-management-alpine
     ports:
       - 5672:5672
       - 15672:15672
   auction-svc:
-    image: zane007/auction-svc:latest
+    image: trycatchlearn/auction-svc:latest
     build: 
       context: .
       dockerfile: src/AuctionService/Dockerfile
@@ -38,7 +38,7 @@ services:
       - postgres
       - rabbitmq
   search-svc:
-    image: zane007/search-svc:latest
+    image: trycatchlearn/search-svc:latest
     build: 
       context: .
       dockerfile: src/SearchService/Dockerfile
@@ -54,10 +54,10 @@ services:
       - mongodb
       - rabbitmq
   identity-svc:
-    image: zane007/identity-svc:latest
+    image: trycatchlearn/identity-svc:latest
     build: 
       context: .
-      dockerfile: src/identityService/Dockerfile
+      dockerfile: src/IdentityService/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Docker
       - ASPNETCORE_URLS=http://+:80
@@ -67,7 +67,7 @@ services:
     depends_on:
       - postgres
   gateway-svc:
-    image: zane007/gateway-svc:latest
+    image: trycatchlearn/gateway-svc:latest
     build: 
       context: .
       dockerfile: src/GatewayService/Dockerfile
